@@ -8,7 +8,7 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Signalling2",
+			"title": "Server Signalling",
 			"description": "Manages connecting to the signalling server and joining the room.",
 			"isActiveOnStart": true,
 			"children": [
@@ -248,32 +248,19 @@
 					],
 					"actions": [
 						{
-							"callFunction": "AddWord",
-							"sid": 581856175662265,
+							"callFunction": "WriteMessageStatus",
+							"sid": 144251061777138,
 							"parameters": [
-								"\"Left the chat room\""
+								"\"The other player left the game challenge\""
 							]
 						},
 						{
-							"id": "set-enabled",
-							"objectClass": "ChatTextBox",
-							"sid": 863844048899284,
+							"id": "set-text",
+							"objectClass": "WordListText",
+							"sid": 887049585870440,
 							"parameters": {
-								"mode": "disabled"
+								"text": "\"\""
 							}
-						},
-						{
-							"id": "set-enabled",
-							"objectClass": "SendButton",
-							"sid": 947062162343583,
-							"parameters": {
-								"mode": "disabled"
-							}
-						},
-						{
-							"id": "clear",
-							"objectClass": "PeerList",
-							"sid": 370587778060175
 						}
 					],
 					"sid": 164420636047244
@@ -289,32 +276,19 @@
 					],
 					"actions": [
 						{
-							"callFunction": "AddWord",
-							"sid": 958354320943693,
+							"callFunction": "WriteMessageStatus",
+							"sid": 870361910415783,
 							"parameters": [
-								"\"Disconnected from signalling server\""
+								"\"The other player is disconnected\""
 							]
 						},
 						{
-							"id": "set-enabled",
-							"objectClass": "ChatTextBox",
-							"sid": 966923521579436,
+							"id": "set-text",
+							"objectClass": "WordListText",
+							"sid": 569572197666726,
 							"parameters": {
-								"mode": "disabled"
+								"text": "\"\""
 							}
-						},
-						{
-							"id": "set-enabled",
-							"objectClass": "SendButton",
-							"sid": 408014105207026,
-							"parameters": {
-								"mode": "disabled"
-							}
-						},
-						{
-							"id": "clear",
-							"objectClass": "PeerList",
-							"sid": 149548696928063
 						}
 					],
 					"sid": 122625326496169
@@ -330,8 +304,8 @@
 					],
 					"actions": [
 						{
-							"callFunction": "AddWord",
-							"sid": 746365169607159,
+							"callFunction": "WriteMessageStatus",
+							"sid": 791178931262166,
 							"parameters": [
 								"\"Signalling error: \" & Multiplayer.ErrorMessage"
 							]
@@ -345,14 +319,14 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Chat2",
-			"description": "Manages sending chat messages and joining/leaving peers",
+			"title": "Game Play",
+			"description": "Manages sending and retrieval of data over connection",
 			"isActiveOnStart": true,
 			"children": [
 				{
 					"eventType": "group",
 					"disabled": false,
-					"title": "Common2",
+					"title": "Common - Game Play",
 					"description": "Events that are common to both the host and peers.",
 					"isActiveOnStart": true,
 					"children": [
@@ -371,19 +345,11 @@
 							],
 							"actions": [
 								{
-									"callFunction": "AddWord",
-									"sid": 851947789188107,
+									"callFunction": "WriteMessageStatus",
+									"sid": 738703468900942,
 									"parameters": [
 										"\"'\" & Multiplayer.PeerAlias & \"' joined\""
 									]
-								},
-								{
-									"id": "add-item",
-									"objectClass": "PeerList",
-									"sid": 184118569279387,
-									"parameters": {
-										"text": "Multiplayer.PeerAlias"
-									}
 								}
 							],
 							"sid": 132643389114303
@@ -403,54 +369,14 @@
 							],
 							"actions": [
 								{
-									"callFunction": "AddWord",
-									"sid": 314758887293869,
+									"callFunction": "WriteMessageStatus",
+									"sid": 559663585315201,
 									"parameters": [
 										"\"'\" & Multiplayer.PeerAlias & \"' left\""
 									]
 								}
 							],
-							"sid": 599512045423226,
-							"children": [
-								{
-									"eventType": "comment",
-									"text": "To remove the right name we check every item in the list, and remove the item index where the item text matches the name of the peer who left."
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "repeat",
-											"objectClass": "System",
-											"sid": 801600065047210,
-											"parameters": {
-												"count": "PeerList.ItemCount"
-											}
-										},
-										{
-											"id": "compare-item-text-at",
-											"objectClass": "PeerList",
-											"sid": 754595822813496,
-											"parameters": {
-												"index": "loopindex",
-												"text-to-compare": "Multiplayer.PeerAlias",
-												"case-sensitivity": "case-sensitive"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "remove",
-											"objectClass": "PeerList",
-											"sid": 440811402922485,
-											"parameters": {
-												"index": "loopindex"
-											}
-										}
-									],
-									"sid": 659701343015894
-								}
-							]
+							"sid": 599512045423226
 						},
 						{
 							"eventType": "comment",
@@ -467,32 +393,19 @@
 							],
 							"actions": [
 								{
-									"callFunction": "AddWord",
-									"sid": 377128704585309,
+									"callFunction": "WriteMessageStatus",
+									"sid": 916737627336614,
 									"parameters": [
 										"\"Kicked (either could not connect to host or host quit)\""
 									]
 								},
 								{
-									"id": "set-enabled",
-									"objectClass": "ChatTextBox",
-									"sid": 802571277358651,
+									"id": "set-text",
+									"objectClass": "WordListText",
+									"sid": 115822191070761,
 									"parameters": {
-										"mode": "disabled"
+										"text": "\"\""
 									}
-								},
-								{
-									"id": "set-enabled",
-									"objectClass": "SendButton",
-									"sid": 816852967693258,
-									"parameters": {
-										"mode": "disabled"
-									}
-								},
-								{
-									"id": "clear",
-									"objectClass": "PeerList",
-									"sid": 759066270612575
 								}
 							],
 							"sid": 112085556267139
