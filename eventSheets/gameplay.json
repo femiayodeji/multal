@@ -1,29 +1,9 @@
 {
-	"name": "Chat events",
+	"name": "GamePlay",
 	"events": [
 		{
 			"eventType": "comment",
 			"text": "These global variables contain the game, game instance and room names to join. They are set as global constants so we can easily change them from a single location if we want to change any of them."
-		},
-		{
-			"eventType": "variable",
-			"name": "GAME_NAME",
-			"type": "string",
-			"initialValue": "scirra-chatexample",
-			"comment": "Name of the game on the signalling server.",
-			"isStatic": false,
-			"isConstant": true,
-			"sid": 4713255663715721
-		},
-		{
-			"eventType": "variable",
-			"name": "INSTANCE_NAME",
-			"type": "string",
-			"initialValue": "default",
-			"comment": "Name of the instance on the signalling server.",
-			"isStatic": false,
-			"isConstant": true,
-			"sid": 2110590493564844
 		},
 		{
 			"eventType": "group",
@@ -56,7 +36,7 @@
 					"actions": [
 						{
 							"id": "set-text",
-							"objectClass": "ChatLog",
+							"objectClass": "WordLog",
 							"sid": 426972919522404,
 							"parameters": {
 								"text": "(Self.Text & newline) & message"
@@ -64,7 +44,7 @@
 						},
 						{
 							"id": "scroll-to-bottom",
-							"objectClass": "ChatLog",
+							"objectClass": "WordLog",
 							"sid": 652038397159504
 						}
 					],
@@ -96,7 +76,7 @@
 					"actions": [
 						{
 							"id": "set-text",
-							"objectClass": "ChatLog",
+							"objectClass": "WordLog",
 							"sid": 6997606594448369,
 							"parameters": {
 								"text": "\"Connecting to server...\""
@@ -128,8 +108,8 @@
 					],
 					"actions": [
 						{
-							"callFunction": "AddLog",
-							"sid": 397997879142269,
+							"callFunction": "AddWord",
+							"sid": 186841782782493,
 							"parameters": [
 								"\"Connected, logging in...\""
 							]
@@ -139,7 +119,7 @@
 							"objectClass": "Multiplayer",
 							"sid": 8593309100331951,
 							"parameters": {
-								"alias": "MyUsername"
+								"alias": "Host_ID"
 							}
 						}
 					],
@@ -160,10 +140,10 @@
 					],
 					"actions": [
 						{
-							"callFunction": "AddLog",
-							"sid": 626769690115272,
+							"callFunction": "AddWord",
+							"sid": 300012679346312,
 							"parameters": [
-								"\"Logged in as '\" & Multiplayer.MyAlias & \"', joining room '\" & RoomName & \"'...\""
+								"\"Logged in as '\" & Multiplayer.MyAlias & \"', joining room '\" & GamePlay_ID & \"'...\""
 							]
 						},
 						{
@@ -173,7 +153,7 @@
 							"parameters": {
 								"game": "GAME_NAME",
 								"instance": "INSTANCE_NAME",
-								"room": "lowercase(RoomName)",
+								"room": "lowercase(GamePlay_ID)",
 								"max-peers": "0"
 							}
 						}
@@ -238,8 +218,8 @@
 									}
 								},
 								{
-									"callFunction": "AddLog",
-									"sid": 701248976186461,
+									"callFunction": "AddWord",
+									"sid": 109735169519210,
 									"parameters": [
 										"\"Joined the chat room as the host\""
 									]
@@ -275,8 +255,8 @@
 									}
 								},
 								{
-									"callFunction": "AddLog",
-									"sid": 431190699037760,
+									"callFunction": "AddWord",
+									"sid": 858318143772172,
 									"parameters": [
 										"\"Joined the chat room as a peer\""
 									]
@@ -309,8 +289,8 @@
 					],
 					"actions": [
 						{
-							"callFunction": "AddLog",
-							"sid": 767024007453235,
+							"callFunction": "AddWord",
+							"sid": 869131869324941,
 							"parameters": [
 								"\"Left the chat room\""
 							]
@@ -350,8 +330,8 @@
 					],
 					"actions": [
 						{
-							"callFunction": "AddLog",
-							"sid": 170263813803449,
+							"callFunction": "AddWord",
+							"sid": 285546657006232,
 							"parameters": [
 								"\"Disconnected from signalling server\""
 							]
@@ -391,8 +371,8 @@
 					],
 					"actions": [
 						{
-							"callFunction": "AddLog",
-							"sid": 693232862414612,
+							"callFunction": "AddWord",
+							"sid": 138172490442912,
 							"parameters": [
 								"\"Signalling error: \" & Multiplayer.ErrorMessage"
 							]
@@ -432,8 +412,8 @@
 							],
 							"actions": [
 								{
-									"callFunction": "AddLog",
-									"sid": 894697201681905,
+									"callFunction": "AddWord",
+									"sid": 912491289072594,
 									"parameters": [
 										"\"'\" & Multiplayer.PeerAlias & \"' joined\""
 									]
@@ -464,8 +444,8 @@
 							],
 							"actions": [
 								{
-									"callFunction": "AddLog",
-									"sid": 613924012652163,
+									"callFunction": "AddWord",
+									"sid": 600803895629151,
 									"parameters": [
 										"\"'\" & Multiplayer.PeerAlias & \"' left\""
 									]
@@ -528,8 +508,8 @@
 							],
 							"actions": [
 								{
-									"callFunction": "AddLog",
-									"sid": 444542867147214,
+									"callFunction": "AddWord",
+									"sid": 252123368147982,
 									"parameters": [
 										"\"Kicked (either could not connect to host or host quit)\""
 									]
@@ -612,8 +592,8 @@
 									],
 									"actions": [
 										{
-											"callFunction": "AddLog",
-											"sid": 462277851431198,
+											"callFunction": "AddWord",
+											"sid": 608873703231037,
 											"parameters": [
 												"\"<\" & Multiplayer.MyAlias & \"> \" & ChatTextBox.Text"
 											]
@@ -661,8 +641,8 @@
 							],
 							"actions": [
 								{
-									"callFunction": "AddLog",
-									"sid": 670984306174920,
+									"callFunction": "AddWord",
+									"sid": 998587877087298,
 									"parameters": [
 										"\"<\" & Multiplayer.FromAlias & \"> \" & Multiplayer.Message"
 									]
@@ -724,8 +704,8 @@
 									],
 									"actions": [
 										{
-											"callFunction": "AddLog",
-											"sid": 145531525674940,
+											"callFunction": "AddWord",
+											"sid": 790537031207326,
 											"parameters": [
 												"\"<\" & Multiplayer.MyAlias & \"> \" & ChatTextBox.Text"
 											]
@@ -773,8 +753,8 @@
 							],
 							"actions": [
 								{
-									"callFunction": "AddLog",
-									"sid": 423687793959731,
+									"callFunction": "AddWord",
+									"sid": 509478337101478,
 									"parameters": [
 										"\"<\" & Multiplayer.FromAlias & \"> \" & Multiplayer.Message"
 									]

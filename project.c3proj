@@ -60,15 +60,20 @@
 		"items": [
 			"Title",
 			"Label",
-			"NameTextBox",
-			"JoinButton",
-			"ChatLog",
+			"HostTextBox",
+			"InviteButton",
+			"WordLog",
 			"ChatTextBox",
 			"SendButton",
 			"PeerList",
 			"Multiplayer",
 			"Keyboard",
-			"RoomNameTextBox"
+			"GuestTextBox",
+			"GamePlayIDText",
+			"MessageStatus",
+			"WordListText",
+			"TurnStatus",
+			"ChatTextBox2"
 		],
 		"subfolders": []
 	},
@@ -80,15 +85,19 @@
 	},
 	"layouts": {
 		"items": [
-			"Login",
-			"Chat"
+			"GameInvite",
+			"GamePlay",
+			"Challenge"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
-			"Login events",
-			"Chat events"
+			"GameInvite",
+			"GamePlay",
+			"GlobalVariables",
+			"Functions",
+			"Challenge"
 		],
 		"subfolders": []
 	},

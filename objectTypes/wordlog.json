@@ -1,7 +1,7 @@
 {
-	"name": "NameTextBox",
+	"name": "WordLog",
 	"plugin-id": "TextBox",
-	"sid": 1469320512466032,
+	"sid": 5408975575978266,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": []

@@ -1,5 +1,5 @@
 {
-	"name": "RoomNameTextBox",
+	"name": "GuestTextBox",
 	"plugin-id": "TextBox",
 	"sid": 844998189527247,
 	"isGlobal": false,

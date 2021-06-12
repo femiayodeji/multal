@@ -1,0 +1,115 @@
+{
+	"name": "Functions",
+	"events": [
+		{
+			"functionName": "GeneratePlayID",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"script": "const characters = runtime.globalVars.CHARACTERS;\nconst length = runtime.globalVars.ID_LENGTH;\n\nlet result = '';\nfor(var i = 0; i < length; i++) {\n\tresult += characters\n\t\t.charAt(Math.floor(Math.random() * characters.length));\n}\nruntime.globalVars.GamePlay_ID = result;"
+				}
+			],
+			"sid": 112097460144620
+		},
+		{
+			"functionName": "AddWord",
+			"functionDescription": "Automatically converted from 'AddLog'",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "message",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 370922136837209
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "WordLog",
+					"sid": 608260891729360,
+					"parameters": {
+						"text": "(Self.Text & newline) & message"
+					}
+				},
+				{
+					"id": "scroll-to-bottom",
+					"objectClass": "WordLog",
+					"sid": 605050622648687
+				}
+			],
+			"sid": 146747664798491
+		},
+		{
+			"functionName": "WriteMessageStatus",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "message",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 836536356244425
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "MessageStatus",
+					"sid": 515790731708542,
+					"parameters": {
+						"text": "message"
+					}
+				}
+			],
+			"sid": 848896760129958
+		},
+		{
+			"functionName": "WriteTurnStatus",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "message",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 572897363708448
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "TurnStatus",
+					"sid": 453098932670843,
+					"parameters": {
+						"text": "message"
+					}
+				}
+			],
+			"sid": 536927644882267
+		}
+	],
+	"sid": 289647260611564
+}

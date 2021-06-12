@@ -1,30 +1,6 @@
 {
-	"name": "Login events",
+	"name": "GameInvite",
 	"events": [
-		{
-			"eventType": "comment",
-			"text": "These global variables store the username and room name that we enter on the login screen. It's then read from the 'Chat' layout and used when logging in to the signalling server."
-		},
-		{
-			"eventType": "variable",
-			"name": "MyUsername",
-			"type": "string",
-			"initialValue": "",
-			"comment": "Name entered on login screen",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 2294275323197028
-		},
-		{
-			"eventType": "variable",
-			"name": "RoomName",
-			"type": "string",
-			"initialValue": "",
-			"comment": "The name of the room to join from the login screen",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 483595094511898
-		},
 		{
 			"eventType": "block",
 			"conditions": [
@@ -37,16 +13,12 @@
 			"actions": [
 				{
 					"id": "set-focused",
-					"objectClass": "NameTextBox",
+					"objectClass": "HostTextBox",
 					"sid": 5804961453505722
 				}
 			],
 			"sid": 3863182249228078,
 			"children": [
-				{
-					"eventType": "comment",
-					"text": "If multiplayer is not supported by this browser, indicate this on the login screen."
-				},
 				{
 					"eventType": "block",
 					"conditions": [
@@ -80,20 +52,11 @@
 			]
 		},
 		{
-			"eventType": "comment",
-			"text": "Make the 'Join' button disabled if the entered name is empty or if the room name is under 5 characters, ensuring they enter valid details before joining."
-		},
-		{
 			"eventType": "block",
 			"conditions": [
 				{
 					"id": "on-text-changed",
-					"objectClass": "NameTextBox",
-					"sid": 7221625448986548
-				},
-				{
-					"id": "on-text-changed",
-					"objectClass": "RoomNameTextBox",
+					"objectClass": "GuestTextBox",
 					"sid": 395736296800179
 				}
 			],
@@ -105,8 +68,8 @@
 					"conditions": [
 						{
 							"id": "compare-text",
-							"objectClass": "NameTextBox",
-							"sid": 6965443884440849,
+							"objectClass": "GuestTextBox",
+							"sid": 557423154518100,
 							"parameters": {
 								"text": "\"\"",
 								"case": "case-insensitive"
@@ -117,7 +80,7 @@
 							"objectClass": "System",
 							"sid": 393640071338070,
 							"parameters": {
-								"first-value": "len(RoomNameTextBox.Text)",
+								"first-value": "len(GuestTextBox.Text)",
 								"comparison": 2,
 								"second-value": "5"
 							}
@@ -126,7 +89,7 @@
 					"actions": [
 						{
 							"id": "set-enabled",
-							"objectClass": "JoinButton",
+							"objectClass": "InviteButton",
 							"sid": 3966967504728742,
 							"parameters": {
 								"mode": "disabled"
@@ -148,7 +111,7 @@
 					"actions": [
 						{
 							"id": "set-enabled",
-							"objectClass": "JoinButton",
+							"objectClass": "InviteButton",
 							"sid": 6686413745652499,
 							"parameters": {
 								"mode": "enabled"
@@ -161,15 +124,11 @@
 			"isOrBlock": true
 		},
 		{
-			"eventType": "comment",
-			"text": "When clicking 'Join' or pressing enter with a non-empty name, store the entered name in the global variable and go to the Chat layout which will then try to connect."
-		},
-		{
 			"eventType": "block",
 			"conditions": [
 				{
 					"id": "on-clicked",
-					"objectClass": "JoinButton",
+					"objectClass": "InviteButton",
 					"sid": 9839453511019038
 				},
 				{
@@ -189,8 +148,8 @@
 					"conditions": [
 						{
 							"id": "compare-text",
-							"objectClass": "NameTextBox",
-							"sid": 4390230649294218,
+							"objectClass": "GuestTextBox",
+							"sid": 752370588058218,
 							"parameters": {
 								"text": "\"\"",
 								"case": "case-insensitive"
@@ -200,9 +159,9 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 561169206854659,
+							"sid": 736873510565500,
 							"parameters": {
-								"first-value": "len(RoomNameTextBox.Text)",
+								"first-value": "len(GuestTextBox.Text)",
 								"comparison": 5,
 								"second-value": "5"
 							}
@@ -219,25 +178,29 @@
 							"objectClass": "System",
 							"sid": 7663821548089167,
 							"parameters": {
-								"variable": "MyUsername",
-								"value": "NameTextBox.Text"
+								"variable": "Host_ID",
+								"value": "HostTextBox.Text"
 							}
 						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 189744107400334,
+							"sid": 404890441807966,
 							"parameters": {
-								"variable": "RoomName",
-								"value": "RoomNameTextBox.Text"
+								"variable": "Guest_ID",
+								"value": "GuestTextBox.Text"
 							}
+						},
+						{
+							"callFunction": "GeneratePlayID",
+							"sid": 343261430130830
 						},
 						{
 							"id": "go-to-layout",
 							"objectClass": "System",
-							"sid": 3654226867664987,
+							"sid": 919700615274264,
 							"parameters": {
-								"layout": "Chat"
+								"layout": "Challenge"
 							}
 						}
 					],
@@ -245,6 +208,27 @@
 				}
 			],
 			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 581341573905309
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "GamePlayIDText",
+					"sid": 433230560657739,
+					"parameters": {
+						"text": "GamePlay_ID"
+					}
+				}
+			],
+			"sid": 806661653642072
 		}
 	],
 	"sid": 354387798483527

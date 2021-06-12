@@ -1,12 +1,12 @@
 {
-	"name": "Chat",
+	"name": "GamePlay",
 	"layers": [
 		{
 			"name": "Layer 0",
 			"overriden": 0,
 			"instances": [
 				{
-					"type": "ChatLog",
+					"type": "WordLog",
 					"properties": {
 						"text": "",
 						"placeholder": "",
@@ -162,5 +162,5 @@
 	"width": 640,
 	"height": 480,
 	"unboundedScrolling": false,
-	"eventSheet": "Chat events"
+	"eventSheet": "GamePlay"
 }
