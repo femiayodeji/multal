@@ -37,17 +37,12 @@
 			"conditions": [],
 			"actions": [
 				{
-					"id": "set-text",
-					"objectClass": "WordLog",
-					"sid": 608260891729360,
+					"id": "append-text",
+					"objectClass": "WordListText",
+					"sid": 674183248248993,
 					"parameters": {
-						"text": "(Self.Text & newline) & message"
+						"text": "message &newline"
 					}
-				},
-				{
-					"id": "scroll-to-bottom",
-					"objectClass": "WordLog",
-					"sid": 605050622648687
 				}
 			],
 			"sid": 146747664798491

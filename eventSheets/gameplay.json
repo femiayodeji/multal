@@ -8,54 +8,6 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Chat log",
-			"description": "A function to easily add a log message to the chat log textarea.",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "comment",
-					"text": "Since a lot of events need to add something to the ChatLog, this function saves us repeating the actions to add a new line to the end of the chat log and scroll to the bottom so we can still see updates even after they go past the object height."
-				},
-				{
-					"functionName": "AddLog",
-					"functionDescription": "Automatically converted from 'AddLog'",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "message",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"sid": 288935703436318
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "WordLog",
-							"sid": 426972919522404,
-							"parameters": {
-								"text": "(Self.Text & newline) & message"
-							}
-						},
-						{
-							"id": "scroll-to-bottom",
-							"objectClass": "WordLog",
-							"sid": 652038397159504
-						}
-					],
-					"sid": 347089708056055
-				}
-			],
-			"sid": 426277591762612
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
 			"title": "Signalling",
 			"description": "Manages connecting to the signalling server and joining the room.",
 			"isActiveOnStart": true,
@@ -119,7 +71,7 @@
 							"objectClass": "Multiplayer",
 							"sid": 8593309100331951,
 							"parameters": {
-								"alias": "Host_ID"
+								"alias": "User_ID"
 							}
 						}
 					],

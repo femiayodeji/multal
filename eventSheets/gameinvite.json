@@ -13,7 +13,7 @@
 			"actions": [
 				{
 					"id": "set-focused",
-					"objectClass": "HostTextBox",
+					"objectClass": "UserNameTextBox",
 					"sid": 5804961453505722
 				}
 			],
@@ -55,9 +55,9 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-text-changed",
-					"objectClass": "GuestTextBox",
-					"sid": 395736296800179
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 310014502496008
 				}
 			],
 			"actions": [],
@@ -68,8 +68,8 @@
 					"conditions": [
 						{
 							"id": "compare-text",
-							"objectClass": "GuestTextBox",
-							"sid": 557423154518100,
+							"objectClass": "UserNameTextBox",
+							"sid": 620086428551912,
 							"parameters": {
 								"text": "\"\"",
 								"case": "case-insensitive"
@@ -78,9 +78,9 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 393640071338070,
+							"sid": 154154095114179,
 							"parameters": {
-								"first-value": "len(GuestTextBox.Text)",
+								"first-value": "len(UserNameTextBox.Text)",
 								"comparison": 2,
 								"second-value": "5"
 							}
@@ -91,6 +91,14 @@
 							"id": "set-enabled",
 							"objectClass": "InviteButton",
 							"sid": 3966967504728742,
+							"parameters": {
+								"mode": "disabled"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "JoinButton",
+							"sid": 645501261994246,
 							"parameters": {
 								"mode": "disabled"
 							}
@@ -116,6 +124,14 @@
 							"parameters": {
 								"mode": "enabled"
 							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "JoinButton",
+							"sid": 746222570636043,
+							"parameters": {
+								"mode": "enabled"
+							}
 						}
 					],
 					"sid": 572687386939787
@@ -130,14 +146,6 @@
 					"id": "on-clicked",
 					"objectClass": "InviteButton",
 					"sid": 9839453511019038
-				},
-				{
-					"id": "on-key-pressed",
-					"objectClass": "Keyboard",
-					"sid": 8525359706670102,
-					"parameters": {
-						"key": 13
-					}
 				}
 			],
 			"actions": [],
@@ -148,8 +156,8 @@
 					"conditions": [
 						{
 							"id": "compare-text",
-							"objectClass": "GuestTextBox",
-							"sid": 752370588058218,
+							"objectClass": "UserNameTextBox",
+							"sid": 389083846884091,
 							"parameters": {
 								"text": "\"\"",
 								"case": "case-insensitive"
@@ -159,9 +167,9 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 736873510565500,
+							"sid": 186711741629597,
 							"parameters": {
-								"first-value": "len(GuestTextBox.Text)",
+								"first-value": "len(UserNameTextBox.Text)",
 								"comparison": 5,
 								"second-value": "5"
 							}
@@ -178,22 +186,21 @@
 							"objectClass": "System",
 							"sid": 7663821548089167,
 							"parameters": {
-								"variable": "Host_ID",
-								"value": "HostTextBox.Text"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 404890441807966,
-							"parameters": {
-								"variable": "Guest_ID",
-								"value": "GuestTextBox.Text"
+								"variable": "User_ID",
+								"value": "UserNameTextBox.Text"
 							}
 						},
 						{
 							"callFunction": "GeneratePlayID",
 							"sid": 343261430130830
+						},
+						{
+							"id": "set-text",
+							"objectClass": "GamePlayIDTextBox",
+							"sid": 202950894313878,
+							"parameters": {
+								"text": "GamePlay_ID"
+							}
 						},
 						{
 							"id": "go-to-layout",
@@ -213,22 +220,75 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 581341573905309
+					"id": "on-clicked",
+					"objectClass": "JoinButton",
+					"sid": 681163884402902
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 537826403990229,
+			"children": [
 				{
-					"id": "set-text",
-					"objectClass": "GamePlayIDText",
-					"sid": 433230560657739,
-					"parameters": {
-						"text": "GamePlay_ID"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-text",
+							"objectClass": "UserNameTextBox",
+							"sid": 123730246235420,
+							"parameters": {
+								"text": "\"\"",
+								"case": "case-insensitive"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 204852344397068,
+							"parameters": {
+								"first-value": "len(UserNameTextBox.Text)",
+								"comparison": 5,
+								"second-value": "5"
+							}
+						},
+						{
+							"id": "supports-multiplayer",
+							"objectClass": "Multiplayer",
+							"sid": 172552983166526
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 659738950276476,
+							"parameters": {
+								"variable": "User_ID",
+								"value": "UserNameTextBox.Text"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 885102333884739,
+							"parameters": {
+								"variable": "GamePlay_ID",
+								"value": "GamePlayIDTextBox.Text"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 127036728564324,
+							"parameters": {
+								"layout": "Challenge"
+							}
+						}
+					],
+					"sid": 155100340783488
 				}
 			],
-			"sid": 806661653642072
+			"isOrBlock": true
 		}
 	],
 	"sid": 354387798483527

@@ -60,7 +60,7 @@
 		"items": [
 			"Title",
 			"Label",
-			"HostTextBox",
+			"UserNameTextBox",
 			"InviteButton",
 			"WordLog",
 			"ChatTextBox",
@@ -68,12 +68,13 @@
 			"PeerList",
 			"Multiplayer",
 			"Keyboard",
-			"GuestTextBox",
-			"GamePlayIDText",
 			"MessageStatus",
 			"WordListText",
 			"TurnStatus",
-			"ChatTextBox2"
+			"ChatTextBox2",
+			"JoinButton",
+			"GamePlayIDTextBox",
+			"GamePlayIDText"
 		],
 		"subfolders": []
 	},

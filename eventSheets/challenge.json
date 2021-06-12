@@ -2,20 +2,12 @@
 	"name": "Challenge",
 	"events": [
 		{
-			"eventType": "comment",
-			"text": "These global variables contain the game, game instance and room names to join. They are set as global constants so we can easily change them from a single location if we want to change any of them."
-		},
-		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Server Signalling",
 			"description": "Manages connecting to the signalling server and joining the room.",
 			"isActiveOnStart": true,
 			"children": [
-				{
-					"eventType": "comment",
-					"text": "On the start of the layout, connect to the signalling server."
-				},
 				{
 					"eventType": "block",
 					"conditions": [
@@ -53,10 +45,6 @@
 					"sid": 697404280647422
 				},
 				{
-					"eventType": "comment",
-					"text": "Once we successfully connect to the signalling server, request to log in with the username entered on the login screen."
-				},
-				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -86,15 +74,11 @@
 							"objectClass": "Multiplayer",
 							"sid": 486565086436052,
 							"parameters": {
-								"alias": "Host_ID"
+								"alias": "User_ID"
 							}
 						}
 					],
 					"sid": 407209889213145
-				},
-				{
-					"eventType": "comment",
-					"text": "Once successfully logged in, request to join the room name the user entered on the login screen. Note the user's current alias is displayed back to them, because it's possible the signalling server changed our name if it was already taken."
 				},
 				{
 					"eventType": "block",
@@ -108,9 +92,9 @@
 					"actions": [
 						{
 							"callFunction": "WriteMessageStatus",
-							"sid": 387746442200902,
+							"sid": 386660938067806,
 							"parameters": [
-								"\"Logged in as '\" & Multiplayer.MyAlias & \"', Game Play ID '\" & GamePlay_ID & \"'...\""
+								"\"Logged in as '\" & Multiplayer.MyAlias & \"'\""
 							]
 						},
 						{
@@ -134,10 +118,6 @@
 						}
 					],
 					"sid": 513148688948342
-				},
-				{
-					"eventType": "comment",
-					"text": "Upon joining the room, display a different status depending on if we are the host, and add our own name to the list of peers on the right. The appropriate group of events for either the host or a peer is activated and the chat text box is enabled."
 				},
 				{
 					"eventType": "block",
@@ -232,10 +212,6 @@
 							"sid": 367933019648986
 						}
 					]
-				},
-				{
-					"eventType": "comment",
-					"text": "If we leave, disconnect or encounter an error, print that to the chat log as well."
 				},
 				{
 					"eventType": "block",
@@ -416,7 +392,7 @@
 				{
 					"eventType": "group",
 					"disabled": false,
-					"title": "Peer2",
+					"title": "Peer - Game Play",
 					"description": "Events specific to chat room peers (i.e. non-host users).",
 					"isActiveOnStart": false,
 					"children": [
@@ -528,7 +504,7 @@
 				{
 					"eventType": "group",
 					"disabled": false,
-					"title": "Host2",
+					"title": "Host - Game Play",
 					"description": "Events specific to the chat room host.",
 					"isActiveOnStart": false,
 					"children": [
@@ -650,6 +626,27 @@
 				}
 			],
 			"sid": 963658280062949
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 685476004098067
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "GamePlayIDText",
+					"sid": 902589863671567,
+					"parameters": {
+						"text": "GamePlay_ID"
+					}
+				}
+			],
+			"sid": 463972877973936
 		}
 	],
 	"sid": 234182000669496

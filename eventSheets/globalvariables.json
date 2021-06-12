@@ -3,23 +3,13 @@
 	"events": [
 		{
 			"eventType": "variable",
-			"name": "Host_ID",
+			"name": "User_ID",
 			"type": "string",
 			"initialValue": "",
 			"comment": "Name entered on login screen",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 583073331812320
-		},
-		{
-			"eventType": "variable",
-			"name": "Guest_ID",
-			"type": "string",
-			"initialValue": "",
-			"comment": "Name entered on login screen",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 228914906131432
 		},
 		{
 			"eventType": "variable",

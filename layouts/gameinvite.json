@@ -50,7 +50,7 @@
 				{
 					"type": "Label",
 					"properties": {
-						"text": "Host Id",
+						"text": "User Id",
 						"enable-bbcode": false,
 						"font": "Arial",
 						"size": 12,
@@ -90,9 +90,9 @@
 					}
 				},
 				{
-					"type": "HostTextBox",
+					"type": "UserNameTextBox",
 					"properties": {
-						"text": "test@mail.com",
+						"text": "user@mail.com",
 						"placeholder": "",
 						"tooltip": "",
 						"initially-visible": true,
@@ -137,8 +137,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 274,
-						"y": 387,
+						"x": 222,
+						"y": 296,
 						"width": 88,
 						"height": 30,
 						"originX": 0,
@@ -152,27 +152,25 @@
 					}
 				},
 				{
-					"type": "GuestTextBox",
+					"type": "JoinButton",
 					"properties": {
-						"text": "",
-						"placeholder": "",
+						"type": "button",
+						"text": "Join",
 						"tooltip": "",
 						"initially-visible": true,
-						"enabled": true,
-						"read-only": false,
-						"spell-check": false,
-						"type": "text",
+						"enabled": false,
 						"auto-font-size": true,
+						"checked": false,
 						"id": ""
 					},
-					"uid": 12,
+					"uid": 18,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 196,
-						"y": 314,
-						"width": 260,
-						"height": 33,
+						"x": 333,
+						"y": 296,
+						"width": 88,
+						"height": 30,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -184,77 +182,27 @@
 					}
 				},
 				{
-					"type": "Label",
-					"properties": {
-						"text": "Guest Id",
-						"enable-bbcode": false,
-						"font": "Arial",
-						"size": 12,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left"
-					},
-					"uid": 13,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 196,
-						"y": 281,
-						"width": 146,
-						"height": 30,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "GamePlayIDText",
+					"type": "GamePlayIDTextBox",
 					"properties": {
 						"text": "",
-						"enable-bbcode": false,
-						"font": "Arial",
-						"size": 28,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0.21568627450980393,
-							0.3137254901960784,
-							0.6627450980392157,
-							1
-						],
-						"horizontal-alignment": "center",
-						"vertical-alignment": "center",
-						"wrapping": "word",
+						"placeholder": "Game Play ID",
+						"tooltip": "",
 						"initially-visible": true,
-						"origin": "top-left"
+						"enabled": true,
+						"read-only": false,
+						"spell-check": false,
+						"type": "text",
+						"auto-font-size": false,
+						"id": ""
 					},
-					"uid": 14,
+					"uid": 20,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 203,
-						"y": 126,
-						"width": 244,
-						"height": 50,
+						"x": 195,
+						"y": 141,
+						"width": 260,
+						"height": 33,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -262,9 +210,7 @@
 							1,
 							1,
 							1
-						],
-						"angle": 0,
-						"zElevation": 0
+						]
 					}
 				}
 			],

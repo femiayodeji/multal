@@ -1,7 +1,7 @@
 {
-	"name": "GuestTextBox",
+	"name": "GamePlayIDTextBox",
 	"plugin-id": "TextBox",
-	"sid": 844998189527247,
+	"sid": 560610458069398,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": []
