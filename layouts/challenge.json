@@ -58,9 +58,9 @@
 						"bold": false,
 						"italic": false,
 						"color": [
-							0.8156862745098039,
-							0.20784313725490197,
-							0.20784313725490197,
+							0.10196078431372549,
+							0.09803921568627451,
+							0.09803921568627451,
 							1
 						],
 						"horizontal-alignment": "left",
@@ -132,38 +132,6 @@
 					}
 				},
 				{
-					"type": "ChatTextBox2",
-					"properties": {
-						"text": "",
-						"placeholder": "Type your word here...",
-						"tooltip": "",
-						"initially-visible": true,
-						"enabled": true,
-						"read-only": true,
-						"spell-check": false,
-						"type": "text",
-						"auto-font-size": true,
-						"id": ""
-					},
-					"uid": 19,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 67,
-						"y": 339,
-						"width": 291,
-						"height": 37,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						]
-					}
-				},
-				{
 					"type": "GamePlayIDText",
 					"properties": {
 						"text": "",
@@ -174,9 +142,9 @@
 						"bold": false,
 						"italic": false,
 						"color": [
-							0.8156862745098039,
-							0.20784313725490197,
-							0.20784313725490197,
+							0.20392156862745098,
+							0.21568627450980393,
+							0.6588235294117647,
 							1
 						],
 						"horizontal-alignment": "center",
@@ -203,6 +171,68 @@
 						],
 						"angle": 0,
 						"zElevation": 0
+					}
+				},
+				{
+					"type": "SendButton",
+					"properties": {
+						"type": "button",
+						"text": "Send",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": false,
+						"auto-font-size": true,
+						"checked": false,
+						"id": ""
+					},
+					"uid": 12,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 320,
+						"y": 340,
+						"width": 80.26324380062515,
+						"height": 39.01685462530389,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "WordTextBox",
+					"properties": {
+						"text": "",
+						"placeholder": "Type your new word here...",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"read-only": false,
+						"spell-check": false,
+						"type": "text",
+						"auto-font-size": true,
+						"id": ""
+					},
+					"uid": 13,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 11,
+						"y": 339,
+						"width": 291,
+						"height": 37,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
 					}
 				}
 			],

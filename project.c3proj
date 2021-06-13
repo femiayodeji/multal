@@ -63,7 +63,7 @@
 			"UserNameTextBox",
 			"InviteButton",
 			"WordLog",
-			"ChatTextBox",
+			"WordTextBox",
 			"SendButton",
 			"PeerList",
 			"Multiplayer",
@@ -71,7 +71,6 @@
 			"MessageStatus",
 			"WordListText",
 			"TurnStatus",
-			"ChatTextBox2",
 			"JoinButton",
 			"GamePlayIDTextBox",
 			"GamePlayIDText"

@@ -128,7 +128,7 @@
 					"actions": [
 						{
 							"id": "set-read-only",
-							"objectClass": "ChatTextBox",
+							"objectClass": "WordTextBox",
 							"sid": 192445587260353,
 							"parameters": {
 								"mode": "not-read-only"
@@ -136,7 +136,7 @@
 						},
 						{
 							"id": "set-focused",
-							"objectClass": "ChatTextBox",
+							"objectClass": "WordTextBox",
 							"sid": 4688975482978636
 						},
 						{
@@ -249,7 +249,7 @@
 						},
 						{
 							"id": "set-enabled",
-							"objectClass": "ChatTextBox",
+							"objectClass": "WordTextBox",
 							"sid": 8533611564876299,
 							"parameters": {
 								"mode": "disabled"
@@ -290,7 +290,7 @@
 						},
 						{
 							"id": "set-enabled",
-							"objectClass": "ChatTextBox",
+							"objectClass": "WordTextBox",
 							"sid": 3991046870678704,
 							"parameters": {
 								"mode": "disabled"
@@ -468,7 +468,7 @@
 								},
 								{
 									"id": "set-enabled",
-									"objectClass": "ChatTextBox",
+									"objectClass": "WordTextBox",
 									"sid": 3225724515838948,
 									"parameters": {
 										"mode": "disabled"
@@ -533,7 +533,7 @@
 									"conditions": [
 										{
 											"id": "compare-text",
-											"objectClass": "ChatTextBox",
+											"objectClass": "WordTextBox",
 											"sid": 1405230832798076,
 											"parameters": {
 												"text": "\"\"",
@@ -547,7 +547,7 @@
 											"callFunction": "AddWord",
 											"sid": 608873703231037,
 											"parameters": [
-												"\"<\" & Multiplayer.MyAlias & \"> \" & ChatTextBox.Text"
+												"\"<\" & Multiplayer.MyAlias & \"> \" & WordTextBox.Text"
 											]
 										},
 										{
@@ -557,13 +557,13 @@
 											"parameters": {
 												"peer-id": "\"\"",
 												"tag": "\"chat\"",
-												"message": "ChatTextBox.Text",
+												"message": "WordTextBox.Text",
 												"mode": "reliable-ordered"
 											}
 										},
 										{
 											"id": "set-text",
-											"objectClass": "ChatTextBox",
+											"objectClass": "WordTextBox",
 											"sid": 6174097170721546,
 											"parameters": {
 												"text": "\"\""
@@ -645,7 +645,7 @@
 									"conditions": [
 										{
 											"id": "compare-text",
-											"objectClass": "ChatTextBox",
+											"objectClass": "WordTextBox",
 											"sid": 2864637623582438,
 											"parameters": {
 												"text": "\"\"",
@@ -659,7 +659,7 @@
 											"callFunction": "AddWord",
 											"sid": 790537031207326,
 											"parameters": [
-												"\"<\" & Multiplayer.MyAlias & \"> \" & ChatTextBox.Text"
+												"\"<\" & Multiplayer.MyAlias & \"> \" & WordTextBox.Text"
 											]
 										},
 										{
@@ -669,13 +669,13 @@
 											"parameters": {
 												"from-id": "\"\"",
 												"tag": "\"chat\"",
-												"message": "ChatTextBox.Text",
+												"message": "WordTextBox.Text",
 												"mode": "reliable-ordered"
 											}
 										},
 										{
 											"id": "set-text",
-											"objectClass": "ChatTextBox",
+											"objectClass": "WordTextBox",
 											"sid": 8266229850771559,
 											"parameters": {
 												"text": "\"\""

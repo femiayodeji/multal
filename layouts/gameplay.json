@@ -38,7 +38,7 @@
 					}
 				},
 				{
-					"type": "ChatTextBox",
+					"type": "WordTextBox",
 					"properties": {
 						"text": "",
 						"placeholder": "Type here to chat...",

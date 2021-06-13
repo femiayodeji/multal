@@ -108,12 +108,12 @@
 						{
 							"id": "join-room",
 							"objectClass": "Multiplayer",
-							"sid": 482089341884111,
+							"sid": 242362659416626,
 							"parameters": {
 								"game": "GAME_NAME",
 								"instance": "INSTANCE_NAME",
 								"room": "lowercase(GamePlay_ID)",
-								"max-peers": "2"
+								"max-peers": "0"
 							}
 						}
 					],
@@ -131,7 +131,7 @@
 					"actions": [
 						{
 							"id": "set-read-only",
-							"objectClass": "ChatTextBox",
+							"objectClass": "WordTextBox",
 							"sid": 899398236470443,
 							"parameters": {
 								"mode": "not-read-only"
@@ -139,7 +139,7 @@
 						},
 						{
 							"id": "set-focused",
-							"objectClass": "ChatTextBox",
+							"objectClass": "WordTextBox",
 							"sid": 242959498156933
 						},
 						{
@@ -166,9 +166,9 @@
 								{
 									"id": "set-group-active",
 									"objectClass": "System",
-									"sid": 639751348555749,
+									"sid": 364637598276429,
 									"parameters": {
-										"group-name": "\"Host\"",
+										"group-name": "\"HostGamePlay\"",
 										"state": "activated"
 									}
 								},
@@ -178,6 +178,15 @@
 									"parameters": [
 										"\"Host\""
 									]
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 807487669584359,
+									"parameters": {
+										"variable": "Player_Turn",
+										"value": "1"
+									}
 								}
 							],
 							"sid": 220049153344670
@@ -195,9 +204,9 @@
 								{
 									"id": "set-group-active",
 									"objectClass": "System",
-									"sid": 290216546253091,
+									"sid": 396459606366120,
 									"parameters": {
-										"group-name": "\"Peer\"",
+										"group-name": "\"GuestGamePlay\"",
 										"state": "activated"
 									}
 								},
@@ -207,6 +216,15 @@
 									"parameters": [
 										"\"Guest\""
 									]
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 668765809294926,
+									"parameters": {
+										"variable": "Player_Turn",
+										"value": "2"
+									}
 								}
 							],
 							"sid": 367933019648986
@@ -385,6 +403,58 @@
 								}
 							],
 							"sid": 112085556267139
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 358674362420988,
+									"parameters": {
+										"variable": "Player_Turn",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-read-only",
+									"objectClass": "WordTextBox",
+									"sid": 702603401769147,
+									"parameters": {
+										"mode": "not-read-only"
+									}
+								}
+							],
+							"sid": 768177542677202
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 718587035453001,
+									"parameters": {
+										"variable": "Player_Turn",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-read-only",
+									"objectClass": "WordTextBox",
+									"sid": 911896720094078,
+									"parameters": {
+										"mode": "not-read-only"
+									}
+								}
+							],
+							"sid": 537619684255829
 						}
 					],
 					"sid": 204629266537728
@@ -392,7 +462,7 @@
 				{
 					"eventType": "group",
 					"disabled": false,
-					"title": "Peer - Game Play",
+					"title": "GuestGamePlay",
 					"description": "Events specific to chat room peers (i.e. non-host users).",
 					"isActiveOnStart": false,
 					"children": [
@@ -429,7 +499,7 @@
 									"conditions": [
 										{
 											"id": "compare-text",
-											"objectClass": "ChatTextBox",
+											"objectClass": "WordTextBox",
 											"sid": 507177771630383,
 											"parameters": {
 												"text": "\"\"",
@@ -441,25 +511,25 @@
 									"actions": [
 										{
 											"callFunction": "AddWord",
-											"sid": 155937623253499,
+											"sid": 413008578668741,
 											"parameters": [
-												"\"<\" & Multiplayer.MyAlias & \"> \" & ChatTextBox.Text"
+												"Multiplayer.MyAlias & \" - \" & WordTextBox.Text & newline"
 											]
 										},
 										{
 											"id": "send-message",
 											"objectClass": "Multiplayer",
-											"sid": 250663825794933,
+											"sid": 321212289796856,
 											"parameters": {
 												"peer-id": "\"\"",
 												"tag": "\"chat\"",
-												"message": "ChatTextBox.Text",
+												"message": "WordTextBox.Text",
 												"mode": "reliable-ordered"
 											}
 										},
 										{
 											"id": "set-text",
-											"objectClass": "ChatTextBox",
+											"objectClass": "WordTextBox",
 											"sid": 820608850414149,
 											"parameters": {
 												"text": "\"\""
@@ -481,7 +551,7 @@
 								{
 									"id": "on-peer-message",
 									"objectClass": "Multiplayer",
-									"sid": 601300570081376,
+									"sid": 386059465374326,
 									"parameters": {
 										"tag": "\"chat\""
 									}
@@ -490,9 +560,9 @@
 							"actions": [
 								{
 									"callFunction": "AddWord",
-									"sid": 761181301315952,
+									"sid": 194826685040282,
 									"parameters": [
-										"\"<\" & Multiplayer.FromAlias & \"> \" & Multiplayer.Message"
+										"Multiplayer.MyAlias & \" - \" & Multiplayer.Message & newline"
 									]
 								}
 							],
@@ -504,14 +574,10 @@
 				{
 					"eventType": "group",
 					"disabled": false,
-					"title": "Host - Game Play",
+					"title": "HostGamePlay",
 					"description": "Events specific to the chat room host.",
 					"isActiveOnStart": false,
 					"children": [
-						{
-							"eventType": "comment",
-							"text": "Non-empty chat messages can be sent with the 'Send' button or just hitting return."
-						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -533,15 +599,11 @@
 							"sid": 233249157231690,
 							"children": [
 								{
-									"eventType": "comment",
-									"text": "When we are the host, we immediately broadcast our own chat messages to everyone else in the room."
-								},
-								{
 									"eventType": "block",
 									"conditions": [
 										{
 											"id": "compare-text",
-											"objectClass": "ChatTextBox",
+											"objectClass": "WordTextBox",
 											"sid": 291173492310751,
 											"parameters": {
 												"text": "\"\"",
@@ -553,25 +615,25 @@
 									"actions": [
 										{
 											"callFunction": "AddWord",
-											"sid": 380738603107158,
+											"sid": 283812750391944,
 											"parameters": [
-												"\"<\" & Multiplayer.MyAlias & \"> \" & ChatTextBox.Text"
+												"Multiplayer.MyAlias & \" - \" & WordTextBox.Text & newline"
 											]
 										},
 										{
 											"id": "broadcast-message",
 											"objectClass": "Multiplayer",
-											"sid": 914184607838019,
+											"sid": 369122348719589,
 											"parameters": {
 												"from-id": "\"\"",
 												"tag": "\"chat\"",
-												"message": "ChatTextBox.Text",
+												"message": "WordTextBox.Text",
 												"mode": "reliable-ordered"
 											}
 										},
 										{
 											"id": "set-text",
-											"objectClass": "ChatTextBox",
+											"objectClass": "WordTextBox",
 											"sid": 479082672783585,
 											"parameters": {
 												"text": "\"\""
@@ -584,16 +646,12 @@
 							"isOrBlock": true
 						},
 						{
-							"eventType": "comment",
-							"text": "When we receive a chat message from someone else, we add it to the chat log, but then we must also relay it to everyone else in the chat room so they can all see what each other are sending. Note that the 'Broadcast' action does not send to the 'From ID' peer - there's no point sending them back the same message they just sent to us."
-						},
-						{
 							"eventType": "block",
 							"conditions": [
 								{
 									"id": "on-peer-message",
 									"objectClass": "Multiplayer",
-									"sid": 968448209036866,
+									"sid": 371625667487627,
 									"parameters": {
 										"tag": "\"chat\""
 									}
@@ -602,15 +660,15 @@
 							"actions": [
 								{
 									"callFunction": "AddWord",
-									"sid": 393556578744950,
+									"sid": 452303753733536,
 									"parameters": [
-										"\"<\" & Multiplayer.FromAlias & \"> \" & Multiplayer.Message"
+										"Multiplayer.MyAlias & \" - \" & Multiplayer.Message & newline"
 									]
 								},
 								{
 									"id": "broadcast-message",
 									"objectClass": "Multiplayer",
-									"sid": 390408407093901,
+									"sid": 152938284850847,
 									"parameters": {
 										"from-id": "Multiplayer.FromID",
 										"tag": "\"chat\"",
@@ -633,20 +691,20 @@
 				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
-					"sid": 685476004098067
+					"sid": 940422676160134
 				}
 			],
 			"actions": [
 				{
 					"id": "set-text",
 					"objectClass": "GamePlayIDText",
-					"sid": 902589863671567,
+					"sid": 191703267819605,
 					"parameters": {
 						"text": "GamePlay_ID"
 					}
 				}
 			],
-			"sid": 463972877973936
+			"sid": 431424821790985
 		}
 	],
 	"sid": 234182000669496
