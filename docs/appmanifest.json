@@ -1,6 +1,6 @@
 {
-	"name": "Multiplayer chat example",
-	"short_name": "Multiplayer chat example",
+	"name": "multal",
+	"short_name": "multal",
 	"description": "",
 	"start_url": "index.html",
 	"display": "fullscreen",
