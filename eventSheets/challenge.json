@@ -325,10 +325,6 @@
 					"isActiveOnStart": true,
 					"children": [
 						{
-							"eventType": "comment",
-							"text": "When someone joins the chat, log a message in the chat box and add them to the peer list on the right."
-						},
-						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -349,10 +345,6 @@
 							"sid": 132643389114303
 						},
 						{
-							"eventType": "comment",
-							"text": "When someone leaves the chat, log a message in the chat box and remove them from the peer list on the right."
-						},
-						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -371,10 +363,6 @@
 								}
 							],
 							"sid": 599512045423226
-						},
-						{
-							"eventType": "comment",
-							"text": "Log a message if we get kicked. This can happen if we could not connect to the host or if the host quit during the chat."
 						},
 						{
 							"eventType": "block",
