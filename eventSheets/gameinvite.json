@@ -17,39 +17,7 @@
 					"sid": 5804961453505722
 				}
 			],
-			"sid": 3863182249228078,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "supports-multiplayer",
-							"objectClass": "Multiplayer",
-							"sid": 3473878772382697,
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "Title",
-							"sid": 6476757648360684,
-							"parameters": {
-								"text": "\"Multiplayer not supported\""
-							}
-						},
-						{
-							"id": "set-font-color",
-							"objectClass": "Title",
-							"sid": 2860201698171315,
-							"parameters": {
-								"color": "rgb(255, 0, 0)"
-							}
-						}
-					],
-					"sid": 3827041909121878
-				}
-			]
+			"sid": 3863182249228078
 		},
 		{
 			"eventType": "block",
@@ -173,11 +141,6 @@
 								"comparison": 5,
 								"second-value": "5"
 							}
-						},
-						{
-							"id": "supports-multiplayer",
-							"objectClass": "Multiplayer",
-							"sid": 5272627283773573
 						}
 					],
 					"actions": [
@@ -203,11 +166,20 @@
 							}
 						},
 						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 969622676804418,
+							"parameters": {
+								"variable": "IsHost",
+								"value": "true"
+							}
+						},
+						{
 							"id": "go-to-layout",
 							"objectClass": "System",
 							"sid": 919700615274264,
 							"parameters": {
-								"layout": "Challenge"
+								"layout": "Host"
 							}
 						}
 					],
@@ -250,11 +222,6 @@
 								"comparison": 5,
 								"second-value": "5"
 							}
-						},
-						{
-							"id": "supports-multiplayer",
-							"objectClass": "Multiplayer",
-							"sid": 172552983166526
 						}
 					],
 					"actions": [
@@ -279,9 +246,18 @@
 						{
 							"id": "go-to-layout",
 							"objectClass": "System",
-							"sid": 127036728564324,
+							"sid": 965462786145787,
 							"parameters": {
-								"layout": "Challenge"
+								"layout": "Guest"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 710460840735488,
+							"parameters": {
+								"variable": "IsHost",
+								"value": "false"
 							}
 						}
 					],

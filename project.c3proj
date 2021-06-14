@@ -32,26 +32,18 @@
 		},
 		{
 			"type": "plugin",
-			"id": "List",
-			"name": "List",
-			"author": "Scirra",
-			"version": "r251",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "Multiplayer",
-			"name": "Multiplayer",
-			"author": "Scirra",
-			"version": "r251",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
 			"id": "Keyboard",
 			"name": "Keyboard",
 			"author": "Scirra",
 			"version": "r251",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Photon",
+			"name": "Photon",
+			"author": "Exit Games",
+			"version": "4.1.1.0",
 			"bundled": false
 		}
 	],
@@ -65,15 +57,15 @@
 			"WordLog",
 			"WordTextBox",
 			"SendButton",
-			"PeerList",
-			"Multiplayer",
 			"Keyboard",
 			"MessageStatus",
 			"WordListText",
 			"TurnStatus",
 			"JoinButton",
 			"GamePlayIDTextBox",
-			"GamePlayIDText"
+			"GamePlayIDText",
+			"Photon",
+			"CancelButton"
 		],
 		"subfolders": []
 	},
@@ -86,18 +78,18 @@
 	"layouts": {
 		"items": [
 			"GameInvite",
-			"GamePlay",
-			"Challenge"
+			"Host",
+			"Guest"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
 			"GameInvite",
-			"GamePlay",
 			"GlobalVariables",
 			"Functions",
-			"Challenge"
+			"Host",
+			"Guest"
 		],
 		"subfolders": []
 	},

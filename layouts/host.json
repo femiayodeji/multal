@@ -1,5 +1,5 @@
 {
-	"name": "Challenge",
+	"name": "Host",
 	"layers": [
 		{
 			"name": "Layer 0",
@@ -234,6 +234,36 @@
 							1
 						]
 					}
+				},
+				{
+					"type": "CancelButton",
+					"properties": {
+						"type": "button",
+						"text": "Cancel",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": false,
+						"id": ""
+					},
+					"uid": 21,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 322,
+						"y": 422,
+						"width": 80.26324380062515,
+						"height": 39.01685462530389,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
 				}
 			],
 			"sid": 476247222935337,
@@ -268,5 +298,5 @@
 	"width": 640,
 	"height": 480,
 	"unboundedScrolling": false,
-	"eventSheet": "Challenge"
+	"eventSheet": "Host"
 }

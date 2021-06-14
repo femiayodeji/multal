@@ -5,7 +5,7 @@
 			"eventType": "variable",
 			"name": "User_ID",
 			"type": "string",
-			"initialValue": "",
+			"initialValue": "PlayerName",
 			"comment": "Name entered on login screen",
 			"isStatic": false,
 			"isConstant": false,
@@ -15,31 +15,11 @@
 			"eventType": "variable",
 			"name": "GamePlay_ID",
 			"type": "string",
-			"initialValue": "",
+			"initialValue": "Lexon",
 			"comment": "The name of the room to join from the login screen",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 797678446984290
-		},
-		{
-			"eventType": "variable",
-			"name": "GAME_NAME",
-			"type": "string",
-			"initialValue": "lexon",
-			"comment": "Name of the game on the signalling server.",
-			"isStatic": false,
-			"isConstant": true,
-			"sid": 484712587655478
-		},
-		{
-			"eventType": "variable",
-			"name": "INSTANCE_NAME",
-			"type": "string",
-			"initialValue": "default",
-			"comment": "Name of the instance on the signalling server.",
-			"isStatic": false,
-			"isConstant": true,
-			"sid": 773663584090731
 		},
 		{
 			"eventType": "variable",
@@ -70,6 +50,16 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 857460223374581
+		},
+		{
+			"eventType": "variable",
+			"name": "IsHost",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 408523111433254
 		}
 	],
 	"sid": 946235287212955

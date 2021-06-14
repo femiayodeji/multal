@@ -1,0 +1,272 @@
+{
+	"name": "Host",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 940422676160134
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "GamePlayIDText",
+					"sid": 191703267819605,
+					"parameters": {
+						"text": "GamePlay_ID"
+					}
+				},
+				{
+					"id": "connect10",
+					"objectClass": "Photon",
+					"sid": 582734680634449
+				}
+			],
+			"sid": 431424821790985
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Connection - Host",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onjoinedlobby22",
+							"objectClass": "Photon",
+							"sid": 808769779401809
+						}
+					],
+					"actions": [
+						{
+							"id": "createroom11",
+							"objectClass": "Photon",
+							"sid": 885663918441056,
+							"parameters": {
+								"room0": "GamePlay_ID",
+								"lobbyname1": "\"\"",
+								"lobbytype4": "default"
+							}
+						}
+					],
+					"sid": 681333286667342
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "isjoinedtoroom34",
+							"objectClass": "Photon",
+							"sid": 947723233134660
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 471347766559881
+						}
+					],
+					"actions": [
+						{
+							"id": "set-read-only",
+							"objectClass": "WordTextBox",
+							"sid": 671835838319522,
+							"parameters": {
+								"mode": "not-read-only"
+							}
+						},
+						{
+							"id": "set-focused",
+							"objectClass": "WordTextBox",
+							"sid": 327996156691964
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "SendButton",
+							"sid": 282134921315472,
+							"parameters": {
+								"mode": "enabled"
+							}
+						}
+					],
+					"sid": 874744234076602
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onerror0",
+							"objectClass": "Photon",
+							"sid": 808185457254791
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "MessageStatus",
+							"sid": 482302180150719,
+							"parameters": {
+								"text": "Photon.ErrorMessage"
+							}
+						}
+					],
+					"sid": 272580453339241
+				}
+			],
+			"sid": 972917850508716
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "GamePlay - Host",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "SendButton",
+							"sid": 269392189427700
+						},
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 768276255909829,
+							"parameters": {
+								"key": 13
+							}
+						}
+					],
+					"actions": [],
+					"sid": 407952879749562,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-text",
+									"objectClass": "WordTextBox",
+									"sid": 579516157992599,
+									"parameters": {
+										"text": "\"\"",
+										"case": "case-insensitive"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "raiseevent17",
+									"objectClass": "Photon",
+									"sid": 700162369515915,
+									"parameters": {
+										"code0": "1",
+										"data1": "\"[\"&Photon.ActorNr&\"]\"&User_ID &\" - \"&WordTextBox.Text",
+										"interestgroup2": "0",
+										"cache11": "donotcache",
+										"receivers15": "all",
+										"targetactors16": "\"\"",
+										"webforward19": "no"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "WordTextBox",
+									"sid": 491965031914562,
+									"parameters": {
+										"text": "\"\""
+									}
+								}
+							],
+							"sid": 839155006472306
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onevent3",
+							"objectClass": "Photon",
+							"sid": 181100582637992,
+							"parameters": {
+								"code0": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "AddWord",
+							"sid": 163044683532713,
+							"parameters": [
+								"Photon.EventData & newline"
+							]
+						}
+					],
+					"sid": 269250470223745
+				}
+			],
+			"sid": 648531769041444
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 603461120855441
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "MessageStatus",
+					"sid": 172344236964737,
+					"parameters": {
+						"text": "Photon.StateString"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "TurnStatus",
+					"sid": 341730025367317,
+					"parameters": {
+						"text": "\"Host\""
+					}
+				}
+			],
+			"sid": 973083521196162
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "CancelButton",
+					"sid": 251880240336820
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 156543885569513,
+					"parameters": {
+						"layout": "GameInvite"
+					}
+				}
+			],
+			"sid": 564586676398252,
+			"isOrBlock": true
+		}
+	],
+	"sid": 234182000669496
+}
