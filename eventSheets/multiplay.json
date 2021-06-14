@@ -115,10 +115,6 @@
 								"lobbyname1": "\"\"",
 								"lobbytype4": "default"
 							}
-						},
-						{
-							"type": "script",
-							"script": "alert(\"\")"
 						}
 					],
 					"sid": 681333286667342
