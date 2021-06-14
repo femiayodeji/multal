@@ -43,9 +43,9 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "Player_Turn",
-			"type": "number",
-			"initialValue": "1",
+			"name": "IsTurn",
+			"type": "boolean",
+			"initialValue": "false",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,

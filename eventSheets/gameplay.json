@@ -1,0 +1,230 @@
+{
+	"name": "GamePlay",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "SendButton",
+					"sid": 180180719971038
+				},
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 634418967042887,
+					"parameters": {
+						"key": 13
+					}
+				}
+			],
+			"actions": [],
+			"sid": 403506462993081,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-text",
+							"objectClass": "WordTextBox",
+							"sid": 983512295877870,
+							"parameters": {
+								"text": "\"\"",
+								"case": "case-insensitive"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "raiseevent17",
+							"objectClass": "Photon",
+							"sid": 846851714707337,
+							"parameters": {
+								"code0": "1",
+								"data1": "\"[\"&Photon.ActorNr&\"]\"&User_ID &\" - \"&WordTextBox.Text",
+								"interestgroup2": "0",
+								"cache11": "donotcache",
+								"receivers15": "all",
+								"targetactors16": "\"\"",
+								"webforward19": "no"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "WordTextBox",
+							"sid": 544192681047612,
+							"parameters": {
+								"text": "\"\""
+							}
+						}
+					],
+					"sid": 205736068499511
+				}
+			],
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "onevent3",
+					"objectClass": "Photon",
+					"sid": 588687570019528,
+					"parameters": {
+						"code0": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "AddWord",
+					"sid": 596746825720880,
+					"parameters": [
+						"Photon.EventData & newline"
+					]
+				},
+				{
+					"id": "toggle-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 654849306128894,
+					"parameters": {
+						"variable": "IsTurn"
+					}
+				}
+			],
+			"sid": 176076485904213
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 794993986619037,
+					"parameters": {
+						"variable": "IsTurn"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-read-only",
+					"objectClass": "WordTextBox",
+					"sid": 382248200504027,
+					"parameters": {
+						"mode": "not-read-only"
+					}
+				},
+				{
+					"id": "set-focused",
+					"objectClass": "WordTextBox",
+					"sid": 916457956733188
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "SendButton",
+					"sid": 767132194046237,
+					"parameters": {
+						"mode": "enabled"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "TurnStatus",
+					"sid": 194577065959428,
+					"parameters": {
+						"text": "\"Your turn\""
+					}
+				}
+			],
+			"sid": 624192189463647
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 106240891368722
+				}
+			],
+			"actions": [
+				{
+					"id": "set-read-only",
+					"objectClass": "WordTextBox",
+					"sid": 336923597035383,
+					"parameters": {
+						"mode": "read-only"
+					}
+				},
+				{
+					"id": "set-unfocused",
+					"objectClass": "WordTextBox",
+					"sid": 252326549522574
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "SendButton",
+					"sid": 102459263667089,
+					"parameters": {
+						"mode": "disabled"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "TurnStatus",
+					"sid": 310995724076210,
+					"parameters": {
+						"text": "\"Wait for opponent\""
+					}
+				}
+			],
+			"sid": 634794670320337
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 932458418784772
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "MessageStatus",
+					"sid": 806441678489985,
+					"parameters": {
+						"text": "Photon.StateString"
+					}
+				}
+			],
+			"sid": 988775931790230
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "CancelButton",
+					"sid": 497641747191393
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 207738021922954,
+					"parameters": {
+						"layout": "GameInvite"
+					}
+				}
+			],
+			"sid": 653171470400049,
+			"isOrBlock": true
+		}
+	],
+	"sid": 212582984272578
+}

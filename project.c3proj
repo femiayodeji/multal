@@ -54,7 +54,6 @@
 			"Label",
 			"UserNameTextBox",
 			"InviteButton",
-			"WordLog",
 			"WordTextBox",
 			"SendButton",
 			"Keyboard",
@@ -89,7 +88,8 @@
 			"GlobalVariables",
 			"Functions",
 			"Host",
-			"Guest"
+			"Guest",
+			"GamePlay"
 		],
 		"subfolders": []
 	},

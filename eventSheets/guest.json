@@ -2,6 +2,10 @@
 	"name": "Guest",
 	"events": [
 		{
+			"eventType": "include",
+			"includeSheet": "GamePlay"
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -100,24 +104,12 @@
 					],
 					"actions": [
 						{
-							"id": "set-read-only",
-							"objectClass": "WordTextBox",
-							"sid": 818355059952985,
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 410293322890633,
 							"parameters": {
-								"mode": "not-read-only"
-							}
-						},
-						{
-							"id": "set-focused",
-							"objectClass": "WordTextBox",
-							"sid": 583821508284898
-						},
-						{
-							"id": "set-enabled",
-							"objectClass": "SendButton",
-							"sid": 873568529939843,
-							"parameters": {
-								"mode": "enabled"
+								"variable": "IsTurn",
+								"value": "false"
 							}
 						}
 					],
@@ -125,153 +117,6 @@
 				}
 			],
 			"sid": 987402974209383
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "GamePlay - Guest",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-clicked",
-							"objectClass": "SendButton",
-							"sid": 395339730941102
-						},
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 496749321269499,
-							"parameters": {
-								"key": 13
-							}
-						}
-					],
-					"actions": [],
-					"sid": 874823845434665,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-text",
-									"objectClass": "WordTextBox",
-									"sid": 178465705559429,
-									"parameters": {
-										"text": "\"\"",
-										"case": "case-insensitive"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [
-								{
-									"id": "raiseevent17",
-									"objectClass": "Photon",
-									"sid": 157739302737846,
-									"parameters": {
-										"code0": "1",
-										"data1": "\"[\"&Photon.ActorNr&\"]\"&User_ID &\" - \"&WordTextBox.Text",
-										"interestgroup2": "0",
-										"cache11": "donotcache",
-										"receivers15": "all",
-										"targetactors16": "\"\"",
-										"webforward19": "no"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "WordTextBox",
-									"sid": 469231000166187,
-									"parameters": {
-										"text": "\"\""
-									}
-								}
-							],
-							"sid": 313027031852467
-						}
-					],
-					"isOrBlock": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "onevent3",
-							"objectClass": "Photon",
-							"sid": 867778242426482,
-							"parameters": {
-								"code0": "1"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "AddWord",
-							"sid": 841513799944019,
-							"parameters": [
-								"Photon.EventData & newline"
-							]
-						}
-					],
-					"sid": 984900494952662
-				}
-			],
-			"sid": 252909326562748
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 362198297434257
-				}
-			],
-			"actions": [
-				{
-					"id": "set-text",
-					"objectClass": "MessageStatus",
-					"sid": 862984866262498,
-					"parameters": {
-						"text": "Photon.StateString"
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "TurnStatus",
-					"sid": 829890020882063,
-					"parameters": {
-						"text": "\"Guest\""
-					}
-				}
-			],
-			"sid": 989901136755286
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-clicked",
-					"objectClass": "CancelButton",
-					"sid": 637783998344229
-				}
-			],
-			"actions": [
-				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 504714847973892,
-					"parameters": {
-						"layout": "GameInvite"
-					}
-				}
-			],
-			"sid": 255202349669784,
-			"isOrBlock": true
 		}
 	],
 	"sid": 846920304039108
