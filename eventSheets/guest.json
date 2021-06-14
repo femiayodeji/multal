@@ -16,17 +16,18 @@
 			],
 			"actions": [
 				{
-					"id": "set-text",
-					"objectClass": "GamePlayIDText",
-					"sid": 410645322302008,
-					"parameters": {
-						"text": "GamePlay_ID"
-					}
-				},
-				{
 					"id": "connect10",
 					"objectClass": "Photon",
-					"sid": 492711124371485
+					"sid": 542074385311365
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 869651284338459,
+					"parameters": {
+						"variable": "IsTurn",
+						"value": "false"
+					}
 				}
 			],
 			"sid": 193157663118679

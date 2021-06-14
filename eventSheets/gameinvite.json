@@ -42,16 +42,6 @@
 								"text": "\"\"",
 								"case": "case-insensitive"
 							}
-						},
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 154154095114179,
-							"parameters": {
-								"first-value": "len(UserNameTextBox.Text)",
-								"comparison": 2,
-								"second-value": "5"
-							}
 						}
 					],
 					"actions": [
@@ -59,14 +49,6 @@
 							"id": "set-enabled",
 							"objectClass": "InviteButton",
 							"sid": 3966967504728742,
-							"parameters": {
-								"mode": "disabled"
-							}
-						},
-						{
-							"id": "set-enabled",
-							"objectClass": "JoinButton",
-							"sid": 645501261994246,
 							"parameters": {
 								"mode": "disabled"
 							}
@@ -92,17 +74,75 @@
 							"parameters": {
 								"mode": "enabled"
 							}
+						}
+					],
+					"sid": 572687386939787
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-text",
+							"objectClass": "GamePlayIDTextBox",
+							"sid": 235298656358375,
+							"parameters": {
+								"text": "\"\"",
+								"case": "case-insensitive"
+							}
 						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 356894867229887,
+							"parameters": {
+								"first-value": "len(GamePlayIDTextBox.Text)",
+								"comparison": 2,
+								"second-value": "ID_LENGTH"
+							}
+						},
+						{
+							"id": "compare-text",
+							"objectClass": "UserNameTextBox",
+							"sid": 347705848737605,
+							"parameters": {
+								"text": "\"\"",
+								"case": "case-insensitive"
+							}
+						}
+					],
+					"actions": [
 						{
 							"id": "set-enabled",
 							"objectClass": "JoinButton",
-							"sid": 746222570636043,
+							"sid": 856961205486623,
+							"parameters": {
+								"mode": "disabled"
+							}
+						}
+					],
+					"sid": 569504119634568,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 336384221400647
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "JoinButton",
+							"sid": 626178779602171,
 							"parameters": {
 								"mode": "enabled"
 							}
 						}
 					],
-					"sid": 572687386939787
+					"sid": 566426525513136
 				}
 			],
 			"isOrBlock": true
@@ -207,6 +247,16 @@
 							"id": "compare-text",
 							"objectClass": "UserNameTextBox",
 							"sid": 123730246235420,
+							"parameters": {
+								"text": "\"\"",
+								"case": "case-insensitive"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-text",
+							"objectClass": "GamePlayIDTextBox",
+							"sid": 864792872099514,
 							"parameters": {
 								"text": "\"\"",
 								"case": "case-insensitive"

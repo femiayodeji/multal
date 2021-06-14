@@ -5,6 +5,27 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 804162311533643
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "GamePlayIDText",
+					"sid": 121396110360270,
+					"parameters": {
+						"text": "GamePlay_ID"
+					}
+				}
+			],
+			"sid": 209324639867577
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-clicked",
 					"objectClass": "SendButton",
 					"sid": 180180719971038
@@ -216,7 +237,7 @@
 				{
 					"id": "go-to-layout",
 					"objectClass": "System",
-					"sid": 207738021922954,
+					"sid": 992119498085072,
 					"parameters": {
 						"layout": "GameInvite"
 					}

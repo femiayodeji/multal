@@ -16,12 +16,9 @@
 			],
 			"actions": [
 				{
-					"id": "set-text",
-					"objectClass": "GamePlayIDText",
-					"sid": 191703267819605,
-					"parameters": {
-						"text": "GamePlay_ID"
-					}
+					"id": "connect10",
+					"objectClass": "Photon",
+					"sid": 123140778286475
 				},
 				{
 					"id": "set-visible",
@@ -30,11 +27,6 @@
 					"parameters": {
 						"visibility": "invisible"
 					}
-				},
-				{
-					"id": "connect10",
-					"objectClass": "Photon",
-					"sid": 582734680634449
 				}
 			],
 			"sid": 431424821790985
