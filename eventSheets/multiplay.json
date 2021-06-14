@@ -1,0 +1,274 @@
+{
+	"name": "Multiplay",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "GamePlay"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 940422676160134
+				}
+			],
+			"actions": [
+				{
+					"id": "connect10",
+					"objectClass": "Photon",
+					"sid": 123140778286475
+				}
+			],
+			"sid": 431424821790985,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 729154394927816,
+							"parameters": {
+								"variable": "IsHost"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "TurnStatus",
+							"sid": 661627721359368,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 771115032277756,
+							"parameters": {
+								"group-name": "\"HostConnection\"",
+								"state": "activated"
+							}
+						}
+					],
+					"sid": 693310223912405
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 745194444241478
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 869651284338459,
+							"parameters": {
+								"variable": "IsTurn",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 330262083929962,
+							"parameters": {
+								"group-name": "\"GuestConnection\"",
+								"state": "activated"
+							}
+						}
+					],
+					"sid": 363130834993962
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "HostConnection",
+			"description": "",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onjoinedlobby22",
+							"objectClass": "Photon",
+							"sid": 808769779401809
+						}
+					],
+					"actions": [
+						{
+							"id": "createroom11",
+							"objectClass": "Photon",
+							"sid": 885663918441056,
+							"parameters": {
+								"room0": "GamePlay_ID",
+								"lobbyname1": "\"\"",
+								"lobbytype4": "default"
+							}
+						},
+						{
+							"type": "script",
+							"script": "alert(\"\")"
+						}
+					],
+					"sid": 681333286667342
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "isjoinedtoroom34",
+							"objectClass": "Photon",
+							"sid": 947723233134660
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 471347766559881
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 259222844258873,
+							"parameters": {
+								"variable": "IsTurn",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "TurnStatus",
+							"sid": 527608178565122,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 874744234076602
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onerror0",
+							"objectClass": "Photon",
+							"sid": 808185457254791
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "MessageStatus",
+							"sid": 482302180150719,
+							"parameters": {
+								"text": "Photon.ErrorMessage"
+							}
+						}
+					],
+					"sid": 272580453339241
+				}
+			],
+			"sid": 972917850508716
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "GuestConnection",
+			"description": "",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onjoinedlobby22",
+							"objectClass": "Photon",
+							"sid": 185197126337342
+						}
+					],
+					"actions": [
+						{
+							"id": "joinrandomroom13",
+							"objectClass": "Photon",
+							"sid": 726433453666423,
+							"parameters": {
+								"matchmyroom2": "no",
+								"matchmakingmode6": "fillroom",
+								"lobbyname7": "\"\"",
+								"lobbytype10": "default",
+								"sqllobbyfilter11": "\"\""
+							}
+						}
+					],
+					"sid": 838833429733473
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "onjoinrandomroomnomatchfound23",
+							"objectClass": "Photon",
+							"sid": 457049589826435
+						}
+					],
+					"actions": [
+						{
+							"id": "joinroom12",
+							"objectClass": "Photon",
+							"sid": 755590164642458,
+							"parameters": {
+								"room0": "GamePlay_ID",
+								"rejoin3": "no",
+								"createifnotexists6": "no",
+								"lobbyname7": "\"\"",
+								"lobbytype10": "default"
+							}
+						}
+					],
+					"sid": 688313319612464
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "isjoinedtoroom34",
+							"objectClass": "Photon",
+							"sid": 333333787502132
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 478687825909331
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 410293322890633,
+							"parameters": {
+								"variable": "IsTurn",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 185866269887009
+				}
+			],
+			"sid": 987402974209383
+		}
+	],
+	"sid": 234182000669496
+}

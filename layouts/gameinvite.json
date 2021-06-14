@@ -92,8 +92,8 @@
 				{
 					"type": "UserNameTextBox",
 					"properties": {
-						"text": "user@mail.com",
-						"placeholder": "",
+						"text": "",
+						"placeholder": "Enter your username...",
 						"tooltip": "",
 						"initially-visible": true,
 						"enabled": true,

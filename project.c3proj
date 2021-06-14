@@ -77,8 +77,7 @@
 	"layouts": {
 		"items": [
 			"GameInvite",
-			"Host",
-			"Guest"
+			"Multiplay"
 		],
 		"subfolders": []
 	},
@@ -87,8 +86,7 @@
 			"GameInvite",
 			"GlobalVariables",
 			"Functions",
-			"Host",
-			"Guest",
+			"Multiplay",
 			"GamePlay"
 		],
 		"subfolders": []

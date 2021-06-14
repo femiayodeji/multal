@@ -1,5 +1,5 @@
 {
-	"name": "Host",
+	"name": "Multiplay",
 	"layers": [
 		{
 			"name": "Layer 0",
@@ -298,5 +298,5 @@
 	"width": 640,
 	"height": 480,
 	"unboundedScrolling": false,
-	"eventSheet": "Host"
+	"eventSheet": "Multiplay"
 }

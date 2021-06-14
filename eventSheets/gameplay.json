@@ -235,6 +235,11 @@
 			],
 			"actions": [
 				{
+					"id": "reset201",
+					"objectClass": "Photon",
+					"sid": 102787566827624
+				},
+				{
 					"id": "go-to-layout",
 					"objectClass": "System",
 					"sid": 992119498085072,
@@ -245,6 +250,24 @@
 			],
 			"sid": 653171470400049,
 			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-end-of-layout",
+					"objectClass": "System",
+					"sid": 711809631736785
+				}
+			],
+			"actions": [
+				{
+					"id": "reset201",
+					"objectClass": "Photon",
+					"sid": 880048373806991
+				}
+			],
+			"sid": 353581872213654
 		}
 	],
 	"sid": 212582984272578
